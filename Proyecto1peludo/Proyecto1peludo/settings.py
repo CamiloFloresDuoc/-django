@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #TERCEROS
+    'bootstrap4',
+    'crispy_forms', 
+    #desps de instalarlo a traves de pip install django-crispy-forms se registra aca y se le da la capacidad de usar boot4
     #django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +45,8 @@ INSTALLED_APPS = [
     #mis apps
     'core',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,9 +84,16 @@ WSGI_APPLICATION = 'Proyecto1peludo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '127.0.0.1:1521/xe',
+        'USER': 'DJANGO006',
+        'PASSWORD': 'DJANGO006',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
+    },
 }
 
 
